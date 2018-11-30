@@ -20,11 +20,29 @@ Add about 2-3 pages here. Across the whole manuscript, you should cite at least 
 
 ## Study design
 
-Add about half a page here. In this section instead of first person (I/we), use the authors of the paper you selected, since you'll just be describing what they did, based on the methods in their paper.
+WHAT DOES THIS SECTION ENTAIL
+
+
 
 ## Sample origin and sequencing
 
-Add about half a page here. In this section instead of first person (I/we), use the authors of the paper you selected, since you'll just be describing what they did, based on the methods in their paper.
+### Study Subjects 
+
+Working at Eastman Institute of Oral Health, University of Rochester, Yu et al. recruited 23 current smokers with the following specifics: median duration, 15 years; median intensity, 15 cigarettes per day) and 20 nonsmokers who have smoked less than 100 cigarettes in their lifetime. Yu et al. excluded subjects who were using antibiotics at the time, had a professional dental cleaning within the last three months, or diagnosed with periodontal disease, which is a serious gum infection, or cancer. To determine if each participant needed to be excluded, the participants were screened by periodontal screening and recording (PSR) index at the time of recruitment. After all subjects were recruited, they signed a consent form and filled out questionnaires in relation to the study [@yu2017effect]. 
+
+### Biospecimen Collection 
+
+Yu et al. obtained nine samples, including supra and subgingiva plaque, saliva, swabs from five soft tissue areas, and one nasal swab from both nostrils, from each participant. They used the procedure of the Human Micriobiome Project to collect the samples. 
+
+### 16S rRNA Gene Sequence Analysis 
+
+After Yu et al. extracted the DNA from each sample, they amplified the V3-V4 regions of the 16S rRNA gene and sequenced it on an Illumina MiSeq instrument using the 300 paired-end protocol. They obtained this instrument from the Institute of Genome Sciences, Genomic Resource Center, University of Maryland School of Medicine and submitted the sequence data to NCBI BioProject.
+
+Yu et al. processed the sequence reads in order to remove low quality and short reads. The remaining reads were bunched into Operational Taxonomy Units (OTUs) at 97% identity, and OTUs with only one read were excluded. They then estimated alpha diversity as the number of OTUs, Shannon's Index, and phylogenetic diversity through averaging >20 tables (1000 reads/sample). After this, they measured taxonomic beta diversity as unweighted and weighted UniFrac distance based on the OTU table. In order to rule out batch effects, or technical sources of differences that have been added to samples during handling, they selected 19 random samples in order to example the difference within and between each batch. 
+
+### Statistical Analysis
+
+Yu et al. used the Wilcoxon rank-sum test to examine gastric microbiota alpha diversity and taxa-relative abundance differences between each group. They then used the Spearman correlation to examine the relationship between continuous variables. Yu et al. used Bonferroni correction to adjust for tests of multiple taxa. They also used Permutational multivariate analysis of variance in order to look at the assocation between unweighted and weighted UniFrac distance and smoking status and other demographic variables. They considered P values of less than 0.05 to be significant after the adjustment for multiple tests. 
 
 ## Computational
 
@@ -34,7 +52,7 @@ These are the methods you used to do your bioinformatic analyses analyses. Shoul
 
 ## Subsections are ok in the results section too
 
-```{r your-code-here}
+```{r your-code-here, echo = FALSE}
 # Add code chunks as needed for your analyses
 # For most analyses, I would recommend splitting the
 # intensive computational part into a seperate R script file
@@ -43,12 +61,16 @@ These are the methods you used to do your bioinformatic analyses analyses. Shoul
 # unclear.
 ```
 
-```{r load-packages-and-data}
+```{r load-packages-and-data, echo = FALSE}
 # load packages as needed
 library("dplyr")
+library("tidyr")
+library("ggplot2")
 
 # load data produced from analysis scripts using
 # something like load("output/processed_data.Rdata")
+load("output/phyloseq_obj.Rdata")
+load("output/melted_obj.Rdata")
 ```
 
 In addition to a minimum of 5-8 figures/tables (and associated captions), you should include sufficient text in this section to describe what your findings were. Remember that in the results section you just describe what you found, but you don't interpret it - that happens in the discussion. 2-3 pages.
