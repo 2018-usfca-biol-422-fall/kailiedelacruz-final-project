@@ -219,6 +219,6 @@ melted_obj <- psmelt(phyloseq_obj)
 # Save the obj files in Rdata format, making it
 # compressed and fast. These saved files will be
 # loaded in the Rmd file for the final project,
-# which will make it easier to knit with a shorter amount of time.
+# which will make it easier to knit in a shorter amount of time.
 save(phyloseq_obj, file = "output/phyloseq_obj.Rdata")
 save(melted_obj, file = "output/melted_obj.Rdata")
