@@ -52,20 +52,95 @@ These are the methods you used to do your bioinformatic analyses analyses. Shoul
 
 ## Subsections are ok in the results section too
 
-```{r your-code-here, echo = FALSE}
-# Add code chunks as needed for your analyses
-# For most analyses, I would recommend splitting the
-# intensive computational part into a seperate R script file
-# and then just load your libraries and the data object here
-# using the `load()` function. Ask me for clarification if this is
-# unclear.
+```{r bar-graph-1, echo = FALSE}
+melted_obj %>%
+  group_by(Phylum, smoker) %>%
+  summarize(sum_count = sum(Abundance)) %>%
+  ggplot(aes(x = Phylum,
+             y = sum_count,
+             fill = smoker)) +
+  geom_col(position = "dodge") +
+  ggtitle("Hello") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
+
+```{r bar-graph-2, echo = FALSE}
+melted_obj %>%
+  group_by(env_material, Phylum, smoker) %>%
+  summarize(sum_count = sum(Abundance)) %>%
+  filter(smoker == "smoker") %>%
+  ggplot(aes(x = Phylum,
+             y = sum_count,
+             fill = env_material)) +
+  geom_col(position = "dodge") +
+  ggtitle("Hello") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+```{r bar-graph-3, echo = FALSE}
+melted_obj %>%
+  group_by(env_material, Phylum, smoker) %>%
+  summarize(sum_count = sum(Abundance)) %>%
+  filter(smoker == "smoker") %>%
+  filter(Phylum == "Firmicutes") %>%
+  ggplot(aes(x = Phylum,
+             y = sum_count,
+             fill = env_material)) +
+  geom_col(position = "dodge") +
+  ggtitle("Hello") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+```{r bar-graph-4, echo = FALSE}
+melted_obj %>%
+  group_by(env_material, Phylum, smoker, Family) %>%
+  summarize(sum_count = sum(Abundance)) %>%
+  filter(smoker == "smoker") %>%
+  filter(Phylum == "Firmicutes") %>%
+  ggplot(aes(x = Family,
+             y = sum_count,
+             fill = env_material)) +
+  geom_col(position = "dodge") +
+  ggtitle("Hello") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+```{r bar-graph-5, echo = FALSE}
+melted_obj %>%
+  group_by(env_material, Phylum, smoker, Family) %>%
+  summarize(sum_count = sum(Abundance)) %>%
+  filter(smoker == "smoker") %>%
+  filter(Family == "Streptococcaceae") %>%
+  ggplot(aes(x = Family,
+             y = sum_count,
+             fill = env_material)) +
+  geom_col(position = "dodge") +
+  ggtitle("Hello") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+```{r bar-graph-6, echo = FALSE}
+melted_obj %>%
+  group_by(env_material, Phylum, smoker, Family, host_subject_id) %>%
+  summarize(sum_count = sum(Abundance)) %>%
+  filter(smoker == "smoker") %>%
+  filter(Family == "Streptococcaceae") %>%
+  ggplot(aes(x = host_subject_id,
+             y = sum_count,
+             fill = env_material)) +
+  geom_col(position = "dodge") +
+  ggtitle("Hello") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
 
 ```{r load-packages-and-data, echo = FALSE}
 # load packages as needed
 library("dplyr")
 library("tidyr")
 library("ggplot2")
+library("knitr")
+library("citr")
 
 # load data produced from analysis scripts using
 # something like load("output/processed_data.Rdata")
