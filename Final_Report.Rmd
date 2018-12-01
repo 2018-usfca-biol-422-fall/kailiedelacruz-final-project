@@ -20,9 +20,8 @@ Add about 2-3 pages here. Across the whole manuscript, you should cite at least 
 
 ## Study design
 
-WHAT DOES THIS SECTION ENTAIL
-
-
+sample origin: what kind of samples
+how many in each group (specifics of the samples) Study design
 
 ## Sample origin and sequencing
 
@@ -46,7 +45,19 @@ Yu et al. used the Wilcoxon rank-sum test to examine gastric microbiota alpha di
 
 ## Computational
 
-These are the methods you used to do your bioinformatic analyses analyses. Should probably be between 0.5 and 1 pages. At a very minimum should include citations for DADA2 and phyloseq if you are doing an amplicon study, or other citations as appropriate.
+### FastQ Dump
+
+Using the Yu et al. study, I downloaded the raw fastq files from NCBI with the accession number PRJNA316469 using fastq dump in a bash script. The fastq-dump function is a part of the sratoolkit that was initally downloaded. This SRA Toolkit is used to convert .sra files into other formats [@metzker2010sequencing]. For our purposes, this was the fastq format. 
+
+### DADA2
+
+Given the data set from the Yu et al. study, I extracted the sample and file names following the DADA2 tutorial [@callahan2016] in a separate R script. The first step in doing this was to set the base path for our input data files. This means that we provide a path variable so that it points to the input data files on my machine. After defining a path variable, I sorted the samples to ensure that they were in order. With a sorted sample set, I then extracted the sample names, making the assumption that the files have the format of “SAMPLENAME.fastq.” Following this, I specified the full path needed to take to reach each of the filenames_forward_reads. After extracting the samples, sorting them, ensuring the format of the files and defining a path for them, I inspected the read quality profiles by plotting the quality profiles of all twenty samples. I then trimmed the data from the filtered files discarding any sequences with Ns, allowing up to 3 expected errors, and cutting off the reads if quality gets as low as 2. I also used the truncLen function in trimming my data to cut off all reads at exactly 200 basepairs. This was done because our data looks at paired end reads, which refers to the two ends of the same DNA molecule. Using the truncLen function at 200 base pairs cut the reads so that only one end would be looked at, where the quality of the reads were still acceptable. To compare the read counts before and after trimming, I created a markdown table. The table showed that the number of read ins were very similar to the number of read outs in the fastq files. Next, continuing with the DADA2 pipeline, I learned the error rates of the data. Every set of data that deals with amplicons has a different set of error rates. This algorithm learns the error model of the dataset by interchanging the estimation of the error rates with the sample structure until they come together as one result. To visualize the errors, I generated plots. This provided the opportunity to check to see if error models match the data.  After visualizing the learned error rates, I dereplicated the sequences or got rid of any duplicated sequences. In further detail, dereplication combines the duplicate sequences into one individual and unique sequence with the relevant abundance that is equal to the number of reads with that sequence. This DADA2 algorithm provides a summary of the quality information that is corresponding to each unique sequence. The overall quality profile of the unique sequences is based on the average of the positional qualities from the dereplicated reads. For this study, I named the dereplicated sequences by the appropriate sample names. At this point, I ran dada to obtain multiple diagnostics about the quality of each denoised sequence variant, the number of reads in the number of unique sequences in each of the samples, etc. To visualize the information obtained from running dada, I generated a sequence table and histogram. The tables rows read “samples” and its columns read “sequence variants.” The histogram which displayed the distribution of trimmed and denoised sequences, studied the sequence length in bp in relation to the frequency.  Next, I checked for and removed any chimeras found in the data. Chimeras can be checked for by identifying them through the possibility of left and right segments to be constructed exactly from two more abundant “parent” sequences.  Using the information gathered so far, I built a table showing how many sequences remain at each step of the pipeline. The columns of the table read “Input,” “Filtered,” “Denoised,” “Sequence Table,” and “Non-chimeric.” Following this, I assigned taxonomy to each sequence variant based on a supplied training set made up of unknown sequences. I exported the cleaned, trimmed, filtered, and denoised sequence variants in order to build a phylogeny to allow for the visualization of the taxonomy. I extracted the sequences to fasta because this is the format that is needed to build a phylogeny.
+
+### Phyloseq 
+
+To begin building a phylogeny, I read in the metadata and the phylogeny. I then constructed a phyloseq object with all of the appropriate data, such as phylogeny from sequence variants, taxonomy for each sequence variant and metadata for each sample. In general, a phyloseq tool can be used to import, analyze, and graphically display phylogenetic sequencing data. It is helpful in reproducible interactive analysis and graphics of microbiome census data [@mcmurdie2013]. However, for this study, I continued by melting the phyloseq object, which puts all of the data for every sample in one file. I then saved both the phyloseq_obj and melted_obj with the .Rdata format. In doing this, 
+
+Using this data, I analyzed the difference in bacterial communities in terms of their taxonomy between the Fkey sample set and the Jkey sample set. I also analyzed the variation in abundances of the focal genera between each individual that was sampled. In doing so, these files were made compressed and able to be quickly loaded. These saved .Rdata files were loaded on the .Rmd file and used for analysis. Using the data from these files, I looked at the difference in bacterial communities, specifically the difference in phyla between participants with different smoking statuses. I also analyzed the variation of abundances of the focal family between the smoking individuals, in terms of env_material. In doing so, I needed the data that related to the taxonomy of all of the env_material samples as well as the abundances of sequences of the important taxonomy that relate to the samples.
 
 # Results
 
@@ -60,7 +71,7 @@ melted_obj %>%
              y = sum_count,
              fill = smoker)) +
   geom_col(position = "dodge") +
-  ggtitle("Hello") +
+  ggtitle("Abundance Count of the Different Phyla in Terms of Smoking Status") +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 
@@ -73,7 +84,7 @@ melted_obj %>%
              y = sum_count,
              fill = env_material)) +
   geom_col(position = "dodge") +
-  ggtitle("Hello") +
+  ggtitle("Abundance Count of the Different Phyla in terms of env_material") +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 
@@ -87,7 +98,7 @@ melted_obj %>%
              y = sum_count,
              fill = env_material)) +
   geom_col(position = "dodge") +
-  ggtitle("Hello") +
+  ggtitle("Abundance Counts of Firmicutes in Terms of env_material") +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 
@@ -101,7 +112,7 @@ melted_obj %>%
              y = sum_count,
              fill = env_material)) +
   geom_col(position = "dodge") +
-  ggtitle("Hello") +
+  ggtitle("Abundance Counts of the Different Families in Terms of env_material") +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 
@@ -115,7 +126,7 @@ melted_obj %>%
              y = sum_count,
              fill = env_material)) +
   geom_col(position = "dodge") +
-  ggtitle("Hello") +
+  ggtitle("Abundance Counts of Streptococcaceae in Terms of env_material") +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 
@@ -129,7 +140,7 @@ melted_obj %>%
              y = sum_count,
              fill = env_material)) +
   geom_col(position = "dodge") +
-  ggtitle("Hello") +
+  ggtitle("Abundance Counts of host_subject_id in Terms of Streptococcaceae and env_material") +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 
