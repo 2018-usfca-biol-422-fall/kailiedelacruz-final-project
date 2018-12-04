@@ -1,6 +1,6 @@
 ---
-title: "Final Report: Your Title Here"
-author: "Don Francisco"
+title: "Variation in Abundance of Streptococcaceae Among Separate Smoking Individuals and Plaque Scrapes"
+author: "Kailie Dela Cruz"
 date: "December 5, 2018"
 output:
     github_document: default
@@ -56,12 +56,18 @@ Given the data set from the Yu et al. study, I extracted the sample and file nam
 ### Phyloseq 
 
 To begin building a phylogeny, I read in the metadata and the phylogeny. I then constructed a phyloseq object with all of the appropriate data, such as phylogeny from sequence variants, taxonomy for each sequence variant and metadata for each sample. In general, a phyloseq tool can be used to import, analyze, and graphically display phylogenetic sequencing data. It is helpful in reproducible interactive analysis and graphics of microbiome census data [@mcmurdie2013]. However, for this study, I continued by melting the phyloseq object, which puts all of the data for every sample in one file. I then saved both the phyloseq_obj and melted_obj with the .Rdata format. In doing this, 
+these files were made compressed and able to be quickly loaded. These saved .Rdata files were loaded on the .Rmd file and used for analysis. 
 
-Using this data, I analyzed the difference in bacterial communities in terms of their taxonomy between the Fkey sample set and the Jkey sample set. I also analyzed the variation in abundances of the focal genera between each individual that was sampled. In doing so, these files were made compressed and able to be quickly loaded. These saved .Rdata files were loaded on the .Rmd file and used for analysis. Using the data from these files, I looked at the difference in bacterial communities, specifically the difference in phyla between participants with different smoking statuses. I also analyzed the variation of abundances of the focal family between the smoking individuals, in terms of env_material. In doing so, I needed the data that related to the taxonomy of all of the env_material samples as well as the abundances of sequences of the important taxonomy that relate to the samples.
+Using the data from these files, I looked at the difference in bacterial communities, specifically the difference in phyla between participants with different smoking statuses. I also analyzed the variation of abundances of the focal family between the smoking individuals, in terms of env_material. In doing so, I needed the data that related to the taxonomy of all of the env_material samples as well as the abundances of sequences of the important taxonomy that relate to the samples.
 
 # Results
 
-## Subsections are ok in the results section too
+## Findings from Methods
+
+I looked at 23 current smokers and 20 participants who were considered to be non-smokers in correspondence to environmental material including plaque scrapes, saliva collections, five soft oral tissue sites, and from both nostrils. The data collected from these samples were sequenced using an Illumina Miseq instrument, where the V3-V4 regions of the 16S rRNA gene were amplified.  This data was then run through the DADA2 pipeline. In analyzing the quality of each of the reads through plots, I observed that most reads tend to display a drop off at around 200 base pairs. In analyzing the number of "Reads In", before trimming, and "Reads out," after trimming, of each individual file, there was no file that showed a significant difference. In then visualizing the error rates and checking to see if the error models match the data, the black lines generally match up to the black points in the plots and decrease from left to right. There are occasional outlying points where they lie at a point with zero error frequency. This may be due to the idea that these points were expected to show extremely accurate results. After looking at the error rates, a histogram of final sequence variant lengths was looked at. The histogram revealed to be one single value with sequence length of 200 base pairs for each read. This is due to the fact that each read was cut at exactly 200 base pairs, and so there is no sequence length variation. Towards the end of the DADA2 pipeline, chimeras were removed. Through this, 409 bimeras were identified in the 5919 input sequences. I analyzed these cleaned reads and found interesting results. 
+
+## Figures
+
 
 ```{r bar-graph-1, echo = FALSE}
 melted_obj %>%
@@ -126,8 +132,7 @@ melted_obj %>%
              y = sum_count,
              fill = env_material)) +
   geom_col(position = "dodge") +
-  ggtitle("Abundance Counts of Streptococcaceae in Terms of env_material") +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+  ggtitle("Abundance Counts of Streptococcaceae in Terms of env_material")
 ```
 
 ```{r bar-graph-6, echo = FALSE}
@@ -140,7 +145,8 @@ melted_obj %>%
              y = sum_count,
              fill = env_material)) +
   geom_col(position = "dodge") +
-  ggtitle("Abundance Counts of host_subject_id in Terms of Streptococcaceae and env_material") +
+  ggtitle("Abundance Counts of host_subject_id in Terms of 
+          Streptococcaceae and env_material") +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 
@@ -158,6 +164,8 @@ library("citr")
 load("output/phyloseq_obj.Rdata")
 load("output/melted_obj.Rdata")
 ```
+
+## Figure Descriptions 
 
 In addition to a minimum of 5-8 figures/tables (and associated captions), you should include sufficient text in this section to describe what your findings were. Remember that in the results section you just describe what you found, but you don't interpret it - that happens in the discussion. 2-3 pages.
 
