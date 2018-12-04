@@ -1,5 +1,5 @@
 ---
-title: "Variation in Abundance of Streptococcaceae Among Separate Smoking Individuals and Plaque Scrapes"
+title: "Variation in Abundance of Streptococcaceae in Plaque Scrapes Among Separate Smoking Individuals"
 author: "Kailie Dela Cruz"
 date: "December 5, 2018"
 output:
