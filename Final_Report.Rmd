@@ -90,11 +90,11 @@ melted_obj %>%
              y = sum_count,
              fill = smoker)) +
   geom_col(position = "dodge") +
-  ggtitle("Abundance Counts of the Different Phyla in Terms of Smoking Status") +
+  ggtitle("Abundance Counts of the Different Phyla in Smokers and Nonsmokers") +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 
-**Figure 1**: Abundance Counts of the Different Phyla in Terms of Smoking Status. 
+**Figure 1**: Abundance Counts of the Different Phyla in Terms of Smoking Status. The Firmicutes phylum had the largest abundance counts for both smokers and nonsmokers in comparison to the other phyla. Firmicutes also reveals the largest variation in abundance counts between smokers and nonsmokers.
 
 ```{r bar-graph-2, echo = FALSE}
 melted_obj %>%
@@ -105,10 +105,12 @@ melted_obj %>%
              y = sum_count,
              fill = env_material)) +
   geom_col(position = "dodge") +
-  ggtitle("Abundance Count of the Different Phyla in Terms of env_material
-          and Positive Smoking Status") +
+  ggtitle("Abundance Counts of the Different Phyla in Smokers 
+          According to env_material") +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
+
+**Figure 2**: Abundance Counts of the Different Phyla in Smokers According to env_material. Fusobacteria and Proteobacteria phyla reveal variation in abundance counts of the different environmental sample materials. However, Firmicutes shows the greatest abundance values for all environmental sample materials, with the tongue swab and plaque scrape samples having the largest values of the 9 materials.
 
 ```{r bar-graph-3, echo = FALSE}
 melted_obj %>%
@@ -120,10 +122,12 @@ melted_obj %>%
              y = sum_count,
              fill = env_material)) +
   geom_col(position = "dodge") +
-  ggtitle("Abundance Counts of Firmicutes in Terms of env_material
-          and Positive Smoking Status") +
+  ggtitle("Abundance Counts of Firmicutes in Smokers
+          According to env_material") +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
+
+**Figure 3**: Abundance Counts of Firmicutes in Smokers According to env_material. The tongue swab and plaque scrape samples in Firmicutes had the largest and somewhat similar abundance counts. The other seven samples revealed variation in abundance counts that were not as significant. 
 
 ```{r bar-graph-4, echo = FALSE}
 melted_obj %>%
@@ -136,10 +140,12 @@ melted_obj %>%
              fill = env_material)) +
   geom_col(position = "dodge") +
   ggtitle("Abundance Counts of the Different
-          Families in Firmicutes Terms of env_material and
-          Positive Smoking Status") +
+          Families in Firmicutes of Smokers
+          According to env_material") +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
+
+**Figure 4**: Abundance Counts of the Different Families in Firmicutes of Smokers According to env_material. *Veilonellaceae* revealed more significant variation in abundance counts of the different environmental sample materials in comparison to the other families. However, *Streptococcaceae* had the most outstanding variation in abundance counts of the env_materials. The tongue swab and plaque scrape samples had the largest abundance values, where the other 7 samples in correspondence to this family did not vary as much. 
 
 ```{r bar-graph-5, echo = FALSE}
 melted_obj %>%
@@ -151,9 +157,11 @@ melted_obj %>%
              y = sum_count,
              fill = env_material)) +
   geom_col(position = "dodge") +
-  ggtitle("Abundance Counts of Streptococcaceae in Terms of env_material
-          and Positive Smoking Status")
+  ggtitle("Abundance Counts of Streptococcaceae in Smokers
+          According to env_material")
 ```
+
+**Figure 5**: Abundance Counts of *Streptococcaceae* in Smokers According to env_material. The abundance values of the tongue swab and plaque scrape samples in relation to *Streptococcaceae* were the largest. The abundance counts of the other 7 sample materials did not show much significant variation and had lower values than the tongue swab and plaque scrape samples in general. 
 
 ```{r bar-graph-6, echo = FALSE}
 melted_obj %>%
@@ -166,33 +174,34 @@ melted_obj %>%
              fill = env_material)) +
   geom_col(position = "dodge") +
   ggtitle("Abundance Counts of host_subject_id in Terms of
-          Streptococcaceae, env_material and
+          Streptococcaceae, env_material and,
           Positive Smoking Status") +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 
+**Figure 6**: Abundance Counts of host_subject_id in Terms of *Streptococcaceae*, env_material, and Positive Smoking Status. The abundance counts of *Streptococcaceae* in relation to the tongue swab samples did not show much variation between each individual. However, there was variation in the abundance counts of *Streptococcaceae* in correspondence to the plaque scrape samples. The variation in abundance counts of the other 7 sample materials were not as significant.
 
 ## Figure Descriptions 
 
-### Abundance Counts of the Different Phyla in Terms of Smoking Status
+### Abundance Counts of the Different Phyla in Smokers and Nonsmokers
 
 In looking at the overall data collected from the Yu et al. study, I first analyzed the abundance counts of the different phyla of the subject's participants, in terms of smoking status [Figure 1]. Within both current smokers and nonsmokers, Actinobacteria, Bacteriodetes, Candidatus_Saccharibacteria, Firmicutes, Fusobacteria, Proteobacteria, Spirochaetes, ad Synergistetes were the phyla that were observed. The phyla including Actinobacteria, Bacteriodetes, Candidatus_Saccharibacteria, Fusobacteria, Proteobacteria, Spirochaetes, and Synergistetes had relatively low abundance counts ranging from 0e+00-.75e+06 and relatively similar abundance counts between smokers and nonsmokers. Firmicutes on the other hand, had a significant abundance count difference between smokers and nonsmokers, and much larger abundance counts in general in comparison to the other phyla. Specifically, the abundance values of this phylum were ~2e+06 for nonsmokers and ~3e+06 for current smokers. 
 
-### Abundance Counts of the Different Phyla in Terms of env_material and Positive Smoking Status
+### Abundance Counts of the Different Phyla in Smokers According to env_material
 
 In seeing a significant difference of the abundance counts of Firmicutes in smokers vs. nonsmokers, I wanted to look further into detail about the different trends of phyla seen in smokers specifically [Figure 2]. I decided to look at smokers rather than nonsmokers due to the fact that cigarette smoking is what is expected to cause changes to the oral and nasal microbiota. 
 
 In looking at the comparison of abundance counts of the different phyla of smoking individuals in terms of the different env_materials, Actinobacteria, Bacteriodetes, Candidatus_Saccharibacteria, Firmicutes, Fusobacteria, Proteobacteria, Spriochaetes, and Syngeristetes were observed. These are also the same phyla that were observed previously [Figure 1]. Similar to what was observed previously as well, all of the phyla except for Firmicutes had relatively similar ranges for their abundance counts, ranging from 0e+00-~2e+05. The Fusobacteria and Proteobacteria phyla in particular though, showed somewhat significant differences of the abundance counts in relation to the different env_materials. For Fusobacteria, the human Supragingival plaque scrape sample had an abundance count of almost twice the amount of the abundance values of the other env_materials. For Proteobacteria, a similar trend was seen, where the human saliva env_material showed a higher abundance count in comparison to the other samples. With these important trends though, Firmicutes continued to have the most outstanding results. Specifically, among the 9 different samples taken, the abundance values ranged from ~1.8e+05-~5.5e+05. Within this phylum, there were also great variations of the abundance counts within each env_material, where the human tongue dorsum swab and human Supragingival plaque scrape had the largest values. 
 
-### Abundance Counts of Firmicutes in Terms of env_material and Positive Smoking Status
+### Abundance Counts of Firmicutes in Smokers According to env_material
 
 With the significant variation in abundance counts of the Firmictures phylum in terms of a positive smoking status and the different env_materials, I wanted to look at the specific variations [Figure 3]. Analyzing this data, the abundance counts for the human tongue dorsum swab and the human Supragingival plaque scrape were the largest among the others but also very similar to each other. The plaque scrape had an abundance count of ~5.1e+05, while the tongue swab had an abundance count of ~5.25e+05. The abundance values of the other 7 environmental samples were almost half of what was seen for the tongue swab and plaque scrape samples, where they ranged from ~1.75e+05-~3.75e+05. 
 
-### Abundance Counts of the Different Families in Terms of env_material and Positive Smoking Status 
+### Abundance Counts of the Different Families in Firmicutes of Smokers According to env_material
 
 In seeing a significant variation in the abundance counts of Firmicutes according to env_material and positive smoking status, I decided to then look at the abundance counts of the different families in relation to Firmicutes, according to env_material and positive smoking status [Figure 4]. Through this, I observed the families of *Bacillales_Incertae_Sedis_XI*, *Carnobacteriaceae*, *Clostridiales_Incertae_Sedis_XI*, *Lachnospiraceae*, *Lactobacillaceae*, *Peptoniphilaceae*, *Peptostreptococcaceae*, *Staphylococcaceae*, *Streptococcaceae*, *Veillonellaceae*, and NA. All families except for *Veilloncellaceae* and *Streptococcaceae* had very low abundance counts, near 0e+00, for all environmental sample materials. *Veilloncellaceae*, on the other hand, had abundance counts ranging from .5e+05-~1e+05, where the plaque scrape, tongue swab, saliva collection, and tonsils swab, had higher abundance values in comparison to the other samples. Though this family revealed more outstanding results in comparison to the others, *Streptococcaceae* had even more notable results. The abundance values for this family, in terms of the 9 samples, ranged from ~1e+05-~3.75e+05. The abundance counts in relation to the tongue swab samples and plaque scrape samples were much larger than the counts of the other environmental sample materials. 
 
-### Abundance Counts of *Streptococcaceae* in Terms of env_material and Positive Smoking Status
+### Abundance Counts of *Streptococcaceae* in Smokers According to env_material
 
 With the significant variation in abundance counts of the *Streptococcaceae* family in terms of a positive smoking status and the different env_materials, I wanted to look at these results in more detail [Figure 5]. In looking at this data, it is similar to what was seen within the Firmicutes phylum according to positive smoking status and env_material [Figure 3]. Specifically, the tongue swab and plaque scrape samples had the largest abundance counts that were relatively similar to each other. The abundance count for the tongue swab sample was ~3.75e+05, while the count for the plaque scrape sample was ~3.4e+05. The abundance values for the other 7 sample sites were much lower than what was seen for the tongue swab and plaque scrape samples. Particularly, these values ranged from ~1e+05-~2.25e+05. 
 
