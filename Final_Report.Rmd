@@ -34,14 +34,9 @@ Add about 2-3 pages here. Across the whole manuscript, you should cite at least 
 
 ## Study design
 
-sample origin: what kind of samples
-how many in each group (specifics of the samples) Study design
+Working at Eastman Institute of Oral Health, University of Rochester, Yu et al. recruited 23 current smokers with the following specifics: median duration, 15 years; median intensity, 15 cigarettes per day) and 20 nonsmokers who have smoked less than 100 cigarettes in their lifetime. Yu et al. excluded subjects who were using antibiotics at the time, had a professional dental cleaning within the last three months, or diagnosed with periodontal disease, which is a serious gum infection, or cancer. To determine if each participant needed to be excluded, the participants were screened by periodontal screening and recording (PSR) index at the time of recruitment. After all subjects were recruited, they signed a consent form and filled out questionnaires in relation to the study [@yu2017effect]. 
 
 ## Sample origin and sequencing
-
-### Study Subjects 
-
-Working at Eastman Institute of Oral Health, University of Rochester, Yu et al. recruited 23 current smokers with the following specifics: median duration, 15 years; median intensity, 15 cigarettes per day) and 20 nonsmokers who have smoked less than 100 cigarettes in their lifetime. Yu et al. excluded subjects who were using antibiotics at the time, had a professional dental cleaning within the last three months, or diagnosed with periodontal disease, which is a serious gum infection, or cancer. To determine if each participant needed to be excluded, the participants were screened by periodontal screening and recording (PSR) index at the time of recruitment. After all subjects were recruited, they signed a consent form and filled out questionnaires in relation to the study [@yu2017effect]. 
 
 ### Biospecimen Collection 
 
