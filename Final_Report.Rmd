@@ -83,58 +83,98 @@ I looked at 23 current smokers and 20 participants who were considered to be non
 ## Figures
 
 ```{r bar-graph-1, echo = FALSE}
+# melted_obj was created in a separate R script. The data apart
+# of melted_obj was loaded at the beginning of this file.
+# This graph gives us a comparison of the phyla seen in smokers
+# vs nonsmokers. Knowing this allows us to look at what specific
+# things in the study may cause specific differences observed.
 melted_obj %>%
-  group_by(Phylum, smoker) %>%
-  summarize(sum_count = sum(Abundance)) %>%
+  group_by(Phylum, smoker) %>% # needed to group by Phylum and smoker
+  # because this figure only needs data in relation to these columns apart
+  # of the melted_obj table.
+  summarize(sum_count = sum(Abundance)) %>% # looks at the sum of abundances
+  # rather than each individual abundance value
   ggplot(aes(x = Phylum,
              y = sum_count,
              fill = smoker)) +
   geom_col(position = "dodge") +
   ggtitle("Abundance Counts of the Different Phyla in Smokers and Nonsmokers") +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) # Helpful in making the
+  # figure less jumbled. Makes the x axis easier to read
 ```
 
 **Figure 1**: Abundance Counts of the Different Phyla in Terms of Smoking Status. The Firmicutes phylum had the largest abundance counts for both smokers and nonsmokers in comparison to the other phyla. Firmicutes also reveals the largest variation in abundance counts between smokers and nonsmokers.
 
 ```{r bar-graph-2, echo = FALSE}
+# melted_obj was created in a separate R script. The data apart
+# of melted_obj was loaded at the beginning of this file.
+# This figure looks at smokers individually, since we observed
+# that there was in fact a difference between smokers and nonsmokers.
 melted_obj %>%
-  group_by(env_material, Phylum, smoker) %>%
-  summarize(sum_count = sum(Abundance)) %>%
-  filter(smoker == "smoker") %>%
+  group_by(env_material, Phylum, smoker) %>% # needed to group by Phylum, smoker,
+  # and env_material because this figure only needs data in relation to these columns apart
+  # of the melted_obj table.
+  summarize(sum_count = sum(Abundance)) %>% # looks at the sum of abundances
+  # rather than each individual abundance value
+  filter(smoker == "smoker") %>% # need to filter smoker because we are now
+  # looking specifically at smoking individuals and dont need the data in
+  # relation to the nonsmokers
   ggplot(aes(x = Phylum,
              y = sum_count,
              fill = env_material)) +
   geom_col(position = "dodge") +
   ggtitle("Abundance Counts of the Different Phyla in Smokers 
           According to env_material") +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) # Helpful in making the
+  # figure less jumbled. Makes the x axis easier to read
 ```
 
 **Figure 2**: Abundance Counts of the Different Phyla in Smokers According to env_material. Fusobacteria and Proteobacteria phyla reveal variation in abundance counts of the different environmental sample materials. However, Firmicutes shows the greatest abundance values for all environmental sample materials, with the tongue swab and plaque scrape samples having the largest values of the 9 materials.
 
 ```{r bar-graph-3, echo = FALSE}
+# melted_obj was created in a separate R script. The data apart
+# of melted_obj was loaded at the beginning of this file.
+# This figure takes a closer look at the abundance counts of
+# Firmicutes in relation to smokers and the different
+# environment sample materials. 
 melted_obj %>%
-  group_by(env_material, Phylum, smoker) %>%
-  summarize(sum_count = sum(Abundance)) %>%
-  filter(smoker == "smoker") %>%
-  filter(Phylum == "Firmicutes") %>%
+  group_by(env_material, Phylum, smoker) %>% # needed to group by Phylum, smoker,
+  # and env_material because this figure only needs data in relation to these columns apart
+  # of the melted_obj table.
+  summarize(sum_count = sum(Abundance)) %>% # looks at the sum of abundances
+  # rather than each individual abundance value
+  filter(smoker == "smoker") %>% # need to filter smoker because we are now
+  # looking specifically at smoking individuals and dont need the data in
+  # relation to the nonsmokers
+  filter(Phylum == "Firmicutes") %>% # need to filter Firmicutes because
+  # we want to look at the abundance counts of this phylum in particular
   ggplot(aes(x = Phylum,
              y = sum_count,
              fill = env_material)) +
   geom_col(position = "dodge") +
   ggtitle("Abundance Counts of Firmicutes in Smokers
-          According to env_material") +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+          According to env_material")
 ```
 
 **Figure 3**: Abundance Counts of Firmicutes in Smokers According to env_material. The tongue swab and plaque scrape samples in Firmicutes had the largest and somewhat similar abundance counts. The other seven samples revealed variation in abundance counts that were not as significant. 
 
 ```{r bar-graph-4, echo = FALSE}
+# melted_obj was created in a separate R script. The data apart
+# of melted_obj was loaded at the beginning of this file.
+# This figure looks at the families in relation to smoking individuals,
+# the Firmicutes phylum, and different environmental sample materials.
 melted_obj %>%
-  group_by(env_material, Phylum, smoker, Family) %>%
-  summarize(sum_count = sum(Abundance)) %>%
-  filter(smoker == "smoker") %>%
-  filter(Phylum == "Firmicutes") %>%
+  group_by(env_material, Phylum, smoker, Family) %>% # needed to group by Phylum, smoker,
+  # env_material, and family because this figure only needs data in relation 
+  # to these columns apart of the melted_obj table.
+  summarize(sum_count = sum(Abundance)) %>% # looks at the sum of abundances
+  # rather than each individual abundance value
+  filter(smoker == "smoker") %>% # need to filter smoker because we are now
+  # looking specifically at smoking individuals and dont need the data in
+  # relation to the nonsmokers
+  filter(Phylum == "Firmicutes") %>% # need to filter Firmicutes because we want to
+  # look at the families that are specifically associated with the Firmicutes phylum
+  # in smoking individuals
   ggplot(aes(x = Family,
              y = sum_count,
              fill = env_material)) +
@@ -142,17 +182,29 @@ melted_obj %>%
   ggtitle("Abundance Counts of the Different
           Families in Firmicutes of Smokers
           According to env_material") +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) # Helpful in making the
+  # figure less jumbled. Makes the x axis easier to read
 ```
 
 **Figure 4**: Abundance Counts of the Different Families in Firmicutes of Smokers According to env_material. *Veilonellaceae* revealed more significant variation in abundance counts of the different environmental sample materials in comparison to the other families. However, *Streptococcaceae* had the most outstanding variation in abundance counts of the env_materials. The tongue swab and plaque scrape samples had the largest abundance values, where the other 7 samples in correspondence to this family did not vary as much. 
 
 ```{r bar-graph-5, echo = FALSE}
+# melted_obj was created in a separate R script. The data apart
+# of melted_obj was loaded at the beginning of this file.
+# This figure takes a closer look at Streptococcaceae in smokers
+# according to the different environmental sample materials.
 melted_obj %>%
-  group_by(env_material, Phylum, smoker, Family) %>%
-  summarize(sum_count = sum(Abundance)) %>%
-  filter(smoker == "smoker") %>%
-  filter(Family == "Streptococcaceae") %>%
+  group_by(env_material, Phylum, smoker, Family) %>% # needed to group by Phylum, smoker,
+  # env_material, and family because this figure only needs data in relation 
+  # to these columns apart of the melted_obj table.
+  summarize(sum_count = sum(Abundance)) %>% # looks at the sum of abundances
+  # rather than each individual abundance value
+  filter(smoker == "smoker") %>% # need to filter smoker because we are now
+  # looking specifically at smoking individuals and dont need the data in
+  # relation to the nonsmokers
+  filter(Family == "Streptococcaceae") %>% # need to filter Streptococcaceae because 
+  # we want to look at this family in particular, and not the others that are apart
+  # of this entire study.
   ggplot(aes(x = Family,
              y = sum_count,
              fill = env_material)) +
@@ -164,11 +216,25 @@ melted_obj %>%
 **Figure 5**: Abundance Counts of *Streptococcaceae* in Smokers According to env_material. The abundance values of the tongue swab and plaque scrape samples in relation to *Streptococcaceae* were the largest. The abundance counts of the other 7 sample materials did not show much significant variation and had lower values than the tongue swab and plaque scrape samples in general. 
 
 ```{r bar-graph-6, echo = FALSE}
+# melted_obj was created in a separate R script. The data apart
+# of melted_obj was loaded at the beginning of this file.
+# This figure looks at the abundance counts of the env_materials
+# in relation to specific individual. This figure is helpful because
+# it allows us to link specific individuals to the variations that
+# we had first observed in the beginning of the analysis.
 melted_obj %>%
-  group_by(env_material, Phylum, smoker, Family, host_subject_id) %>%
-  summarize(sum_count = sum(Abundance)) %>%
-  filter(smoker == "smoker") %>%
-  filter(Family == "Streptococcaceae") %>%
+  group_by(env_material, Phylum, smoker, Family, host_subject_id) %>% # needed to 
+  # group by Phylum, smoker,env_material, family, and host_subject_id 
+  # because this figure only needs data in relation 
+  # to these columns apart of the melted_obj table.
+  summarize(sum_count = sum(Abundance)) %>% # looks at the sum of abundances
+  # rather than each individual abundance value
+  filter(smoker == "smoker") %>% # need to filter smoker because we are now
+  # looking specifically at smoking individuals and dont need the data in
+  # relation to the nonsmokers
+  filter(Family == "Streptococcaceae") %>% # need to filter Streptococcaceae because 
+  # we want to look at this family in particular, and not the others that are apart
+  # of this entire study.
   ggplot(aes(x = host_subject_id,
              y = sum_count,
              fill = env_material)) +
@@ -176,7 +242,8 @@ melted_obj %>%
   ggtitle("Abundance Counts of host_subject_id in Terms of
           Streptococcaceae, env_material and,
           Positive Smoking Status") +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) # Helpful in making the
+  # figure less jumbled. Makes the x axis easier to read
 ```
 
 **Figure 6**: Abundance Counts of host_subject_id in Terms of *Streptococcaceae*, env_material, and Positive Smoking Status. The abundance counts of *Streptococcaceae* in relation to the tongue swab samples did not show much variation between each individual. However, there was variation in the abundance counts of *Streptococcaceae* in correspondence to the plaque scrape samples. The variation in abundance counts of the other 7 sample materials were not as significant.
