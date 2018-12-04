@@ -12,6 +12,20 @@ csl: bioinformatics.csl
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r load-packages-and-data, echo = FALSE}
+# load packages as needed
+library("dplyr")
+library("tidyr")
+library("ggplot2")
+library("knitr")
+library("citr")
+
+# load data produced from analysis scripts using
+# something like load("output/processed_data.Rdata")
+load("output/phyloseq_obj.Rdata")
+load("output/melted_obj.Rdata")
+```
+
 # Introduction
 
 Add about 2-3 pages here. Across the whole manuscript, you should cite at least 20 peer reviewed articles.
@@ -79,6 +93,8 @@ melted_obj %>%
   ggtitle("Abundance Counts of the Different Phyla in Terms of Smoking Status") +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
+
+**Figure 1**: Abundance Counts of the Different Phyla in Terms of Smoking Status. 
 
 ```{r bar-graph-2, echo = FALSE}
 melted_obj %>%
@@ -156,20 +172,6 @@ melted_obj %>%
 ```
 
 
-```{r load-packages-and-data, echo = FALSE}
-# load packages as needed
-library("dplyr")
-library("tidyr")
-library("ggplot2")
-library("knitr")
-library("citr")
-
-# load data produced from analysis scripts using
-# something like load("output/processed_data.Rdata")
-load("output/phyloseq_obj.Rdata")
-load("output/melted_obj.Rdata")
-```
-
 ## Figure Descriptions 
 
 ### Abundance Counts of the Different Phyla in Terms of Smoking Status
@@ -188,7 +190,15 @@ With the significant variation in abundance counts of the Firmictures phylum in 
 
 ### Abundance Counts of the Different Families in Terms of env_material and Positive Smoking Status 
 
-In seeing a significant variation in the abundance counts of Firmicutes according to env_material and positive smoking status, I decided to then look at the abundance counts of the different families in relation to Firmicutes, according to env_material and positive smoking status [Figure 4]. 
+In seeing a significant variation in the abundance counts of Firmicutes according to env_material and positive smoking status, I decided to then look at the abundance counts of the different families in relation to Firmicutes, according to env_material and positive smoking status [Figure 4]. Through this, I observed the families of *Bacillales_Incertae_Sedis_XI*, *Carnobacteriaceae*, *Clostridiales_Incertae_Sedis_XI*, *Lachnospiraceae*, *Lactobacillaceae*, *Peptoniphilaceae*, *Peptostreptococcaceae*, *Staphylococcaceae*, *Streptococcaceae*, *Veillonellaceae*, and NA. All families except for *Veilloncellaceae* and *Streptococcaceae* had very low abundance counts, near 0e+00, for all environmental sample materials. *Veilloncellaceae*, on the other hand, had abundance counts ranging from .5e+05-~1e+05, where the plaque scrape, tongue swab, saliva collection, and tonsils swab, had higher abundance values in comparison to the other samples. Though this family revealed more outstanding results in comparison to the others, *Streptococcaceae* had even more notable results. The abundance values for this family, in terms of the 9 samples, ranged from ~1e+05-~3.75e+05. The abundance counts in relation to the tongue swab samples and plaque scrape samples were much larger than the counts of the other environmental sample materials. 
+
+### Abundance Counts of *Streptococcaceae* in Terms of env_material and Positive Smoking Status
+
+With the significant variation in abundance counts of the *Streptococcaceae* family in terms of a positive smoking status and the different env_materials, I wanted to look at these results in more detail [Figure 5]. In looking at this data, it is similar to what was seen within the Firmicutes phylum according to positive smoking status and env_material [Figure 3]. Specifically, the tongue swab and plaque scrape samples had the largest abundance counts that were relatively similar to each other. The abundance count for the tongue swab sample was ~3.75e+05, while the count for the plaque scrape sample was ~3.4e+05. The abundance values for the other 7 sample sites were much lower than what was seen for the tongue swab and plaque scrape samples. Particularly, these values ranged from ~1e+05-~2.25e+05. 
+
+### Abundance Counts of host_subject id in Terms of *Streptococcaceae*, env_material, and Positive Smoking Status
+
+As the tongue swab and plaque scrape samples of smoking individuals had the most significant abundance values of *Streptococcaceae*, I wanted to look further into this and see I was able to link these values to specific individuals. In order to do this, I looked at the abundance counts of host_subject_id in terms of *Streptococcaceae*, env_materials, and positive smoking status [Figure 6]. Looking at the tongue swab and plaque scrape samples in particular, there was not much variation in the abundance counts among each individual for the tongue swab samples. However, in looking at the plaque scrape samples, individual CYU0014 had a much higher abundance count for *Streptococcaceae* with a value of ~62,500 in comparison to the other individuals who had abundance values of almost half of this. The abundance counts of the other env_materials revealed variation, but not as significant as the tongue swab and plaque scrape samples. 
 
 # Discussion
 
