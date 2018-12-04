@@ -21,5 +21,5 @@
 # If we were working with a single file, a for loop would not be needed.
 for SRA_number in $(cut -f 7 data/metadata/SraRunTable.txt | tail -n +2)
 do
-    /Users/kailiedelacruz/Downloads/sratoolkit.2.9.2-mac64/bin/fastq-dump -v $SRA_number -O data/raw_data
+    "/Users/kailiedelacruz/Downloads/sratoolkit.2.9.2-mac64/bin/fastq-dump -v $SRA_number -O data/raw_data"
 done
