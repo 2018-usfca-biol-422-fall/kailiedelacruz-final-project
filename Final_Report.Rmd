@@ -99,7 +99,8 @@ melted_obj %>%
              fill = smoker)) +
   geom_col(position = "dodge") +
   ggtitle("Abundance Counts of the Different Phyla in Smokers and Nonsmokers") +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1)) # Helpful in making the
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+  # Helpful in making the
   # figure less jumbled. Makes the x axis easier to read
 ```
 
@@ -111,8 +112,10 @@ melted_obj %>%
 # This figure looks at smokers individually, since we observed
 # that there was in fact a difference between smokers and nonsmokers.
 melted_obj %>%
-  group_by(env_material, Phylum, smoker) %>% # needed to group by Phylum, smoker,
-  # and env_material because this figure only needs data in relation to these columns apart
+  group_by(env_material, Phylum, smoker) %>%
+  # needed to group by Phylum, smoker,
+  # and env_material because this figure only needs data in
+  # relation to these columns apart
   # of the melted_obj table.
   summarize(sum_count = sum(Abundance)) %>% # looks at the sum of abundances
   # rather than each individual abundance value
@@ -123,9 +126,10 @@ melted_obj %>%
              y = sum_count,
              fill = env_material)) +
   geom_col(position = "dodge") +
-  ggtitle("Abundance Counts of the Different Phyla in Smokers 
+  ggtitle("Abundance Counts of the Different Phyla in Smokers
           According to env_material") +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1)) # Helpful in making the
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+  # Helpful in making the
   # figure less jumbled. Makes the x axis easier to read
 ```
 
@@ -134,12 +138,15 @@ melted_obj %>%
 ```{r bar-graph-3, echo = FALSE}
 # melted_obj was created in a separate R script. The data apart
 # of melted_obj was loaded at the beginning of this file.
-# This figure takes a closer look at the abundance counts of
+# This figure takes a closer look at
+# the abundance counts of
 # Firmicutes in relation to smokers and the different
-# environment sample materials. 
+# environment sample materials.
 melted_obj %>%
-  group_by(env_material, Phylum, smoker) %>% # needed to group by Phylum, smoker,
-  # and env_material because this figure only needs data in relation to these columns apart
+  group_by(env_material, Phylum, smoker) %>% # needed to
+  # group by Phylum, smoker,
+  # and env_material because this figure only
+  # needs data in relation to these columns apart
   # of the melted_obj table.
   summarize(sum_count = sum(Abundance)) %>% # looks at the sum of abundances
   # rather than each individual abundance value
@@ -159,21 +166,27 @@ melted_obj %>%
 **Figure 3**: Abundance Counts of Firmicutes in Smokers According to env_material. The tongue swab and plaque scrape samples in Firmicutes had the largest and somewhat similar abundance counts. The other seven samples revealed variation in abundance counts that were not as significant. 
 
 ```{r bar-graph-4, echo = FALSE}
-# melted_obj was created in a separate R script. The data apart
+# melted_obj was created in a separate R script.
+# The data apart
 # of melted_obj was loaded at the beginning of this file.
 # This figure looks at the families in relation to smoking individuals,
 # the Firmicutes phylum, and different environmental sample materials.
 melted_obj %>%
-  group_by(env_material, Phylum, smoker, Family) %>% # needed to group by Phylum, smoker,
-  # env_material, and family because this figure only needs data in relation 
-  # to these columns apart of the melted_obj table.
+  group_by(env_material, Phylum, smoker, Family) %>%
+  # needed to group by Phylum, smoker,
+  # env_material, and family because this
+  # figure only needs data in relation
+  # to these columns apart of the
+  # melted_obj table.
   summarize(sum_count = sum(Abundance)) %>% # looks at the sum of abundances
   # rather than each individual abundance value
   filter(smoker == "smoker") %>% # need to filter smoker because we are now
   # looking specifically at smoking individuals and dont need the data in
   # relation to the nonsmokers
-  filter(Phylum == "Firmicutes") %>% # need to filter Firmicutes because we want to
-  # look at the families that are specifically associated with the Firmicutes phylum
+  filter(Phylum == "Firmicutes") %>%
+  # need to filter Firmicutes because we want to
+  # look at the families that are specifically
+  # associated with the Firmicutes phylum
   # in smoking individuals
   ggplot(aes(x = Family,
              y = sum_count,
@@ -182,7 +195,8 @@ melted_obj %>%
   ggtitle("Abundance Counts of the Different
           Families in Firmicutes of Smokers
           According to env_material") +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1)) # Helpful in making the
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+  # Helpful in making the
   # figure less jumbled. Makes the x axis easier to read
 ```
 
@@ -191,19 +205,24 @@ melted_obj %>%
 ```{r bar-graph-5, echo = FALSE}
 # melted_obj was created in a separate R script. The data apart
 # of melted_obj was loaded at the beginning of this file.
-# This figure takes a closer look at Streptococcaceae in smokers
-# according to the different environmental sample materials.
+# This figure takes a closer look at
+# Streptococcaceae in smokers
+# according to the different
+# environmental sample materials.
 melted_obj %>%
-  group_by(env_material, Phylum, smoker, Family) %>% # needed to group by Phylum, smoker,
-  # env_material, and family because this figure only needs data in relation 
+  group_by(env_material, Phylum, smoker, Family) %>%
+  # needed to group by Phylum, smoker,
+  # env_material, and family because this figure only needs data in relation
   # to these columns apart of the melted_obj table.
   summarize(sum_count = sum(Abundance)) %>% # looks at the sum of abundances
   # rather than each individual abundance value
   filter(smoker == "smoker") %>% # need to filter smoker because we are now
   # looking specifically at smoking individuals and dont need the data in
   # relation to the nonsmokers
-  filter(Family == "Streptococcaceae") %>% # need to filter Streptococcaceae because 
-  # we want to look at this family in particular, and not the others that are apart
+  filter(Family == "Streptococcaceae") %>%
+  # need to filter Streptococcaceae because
+  # we want to look at this family in particular,
+  # and not the others that are apart
   # of this entire study.
   ggplot(aes(x = Family,
              y = sum_count,
@@ -223,17 +242,20 @@ melted_obj %>%
 # it allows us to link specific individuals to the variations that
 # we had first observed in the beginning of the analysis.
 melted_obj %>%
-  group_by(env_material, Phylum, smoker, Family, host_subject_id) %>% # needed to 
-  # group by Phylum, smoker,env_material, family, and host_subject_id 
-  # because this figure only needs data in relation 
+  group_by(env_material, Phylum, smoker, Family, host_subject_id) %>%
+  # needed to
+  # group by Phylum, smoker,env_material, family, and host_subject_id
+  # because this figure only needs data in relation
   # to these columns apart of the melted_obj table.
   summarize(sum_count = sum(Abundance)) %>% # looks at the sum of abundances
   # rather than each individual abundance value
   filter(smoker == "smoker") %>% # need to filter smoker because we are now
   # looking specifically at smoking individuals and dont need the data in
   # relation to the nonsmokers
-  filter(Family == "Streptococcaceae") %>% # need to filter Streptococcaceae because 
-  # we want to look at this family in particular, and not the others that are apart
+  filter(Family == "Streptococcaceae") %>%
+  # need to filter Streptococcaceae because
+  # we want to look at this family in particular,
+  # and not the others that are apart
   # of this entire study.
   ggplot(aes(x = host_subject_id,
              y = sum_count,
@@ -242,7 +264,8 @@ melted_obj %>%
   ggtitle("Abundance Counts of host_subject_id in Terms of
           Streptococcaceae, env_material and,
           Positive Smoking Status") +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1)) # Helpful in making the
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+  # Helpful in making the
   # figure less jumbled. Makes the x axis easier to read
 ```
 
