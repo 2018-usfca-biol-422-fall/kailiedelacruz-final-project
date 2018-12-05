@@ -89,7 +89,7 @@ I looked at 23 current smokers and 20 participants who were considered to be non
 
 ## Figures
 
-```{r bar-graph-1, echo = FALSE}
+```{r bar-graph-of-smokers-vs-nonsmokers, echo = FALSE}
 # melted_obj was created in a separate R script. The data apart
 # of melted_obj was loaded at the beginning of this file.
 # This graph gives us a comparison of the phyla seen in smokers
@@ -113,7 +113,7 @@ melted_obj %>%
 
 **Figure 1**: Abundance Counts of the Different Phyla in Terms of Smoking Status. The Firmicutes phylum had the largest abundance counts for both smokers and nonsmokers in comparison to the other phyla. Firmicutes also reveals the largest variation in abundance counts between smokers and nonsmokers.
 
-```{r bar-graph-2, echo = FALSE}
+```{r bar-graph-of-phyla-in-smokers, echo = FALSE}
 # melted_obj was created in a separate R script. The data apart
 # of melted_obj was loaded at the beginning of this file.
 # This figure looks at smokers individually, since we observed
@@ -142,7 +142,7 @@ melted_obj %>%
 
 **Figure 2**: Abundance Counts of the Different Phyla in Smokers According to env_material. Fusobacteria and Proteobacteria phyla reveal variation in abundance counts of the different environmental sample materials. However, Firmicutes shows the greatest abundance values for all environmental sample materials, with the tongue swab and plaque scrape samples having the largest values of the 9 materials.
 
-```{r bar-graph-3, echo = FALSE}
+```{r bar-graph-of-firmicutes-close-up, echo = FALSE}
 # melted_obj was created in a separate R script. The data apart
 # of melted_obj was loaded at the beginning of this file.
 # This figure takes a closer look at
@@ -172,7 +172,7 @@ melted_obj %>%
 
 **Figure 3**: Abundance Counts of Firmicutes in Smokers According to env_material. The tongue swab and plaque scrape samples in Firmicutes had the largest and somewhat similar abundance counts. The other seven samples revealed variation in abundance counts that were not as significant. 
 
-```{r bar-graph-4, echo = FALSE}
+```{r bar-graph-of-families-in-smokers, echo = FALSE}
 # melted_obj was created in a separate R script.
 # The data apart
 # of melted_obj was loaded at the beginning of this file.
@@ -209,7 +209,7 @@ melted_obj %>%
 
 **Figure 4**: Abundance Counts of the Different Families in Firmicutes of Smokers According to env_material. *Veilonellaceae* revealed more significant variation in abundance counts of the different environmental sample materials in comparison to the other families. However, *Streptococcaceae* had the most outstanding variation in abundance counts of the env_materials. The tongue swab and plaque scrape samples had the largest abundance values, where the other 7 samples in correspondence to this family did not vary as much. 
 
-```{r bar-graph-5, echo = FALSE}
+```{r bar-graph-of-streptococcaceae-close-up, echo = FALSE}
 # melted_obj was created in a separate R script. The data apart
 # of melted_obj was loaded at the beginning of this file.
 # This figure takes a closer look at
@@ -241,7 +241,7 @@ melted_obj %>%
 
 **Figure 5**: Abundance Counts of *Streptococcaceae* in Smokers According to env_material. This looks closer at the variation in abundance values of the focal family. The abundance values of the tongue swab and plaque scrape samples in relation to *Streptococcaceae* were the largest. The abundance counts of the other 7 sample materials did not show much significant variation and had lower values than the tongue swab and plaque scrape samples in general. 
 
-```{r bar-graph-6, echo = FALSE}
+```{r bar-graph-of-individual-smokers, echo = FALSE}
 # melted_obj was created in a separate R script. The data apart
 # of melted_obj was loaded at the beginning of this file.
 # This figure looks at the abundance counts of the env_materials
