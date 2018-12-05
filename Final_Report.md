@@ -3,17 +3,6 @@ The Difference in Bacterial Communities in Smokers Vs. Nonsmokers Seen Through t
 Kailie Dela Cruz
 December 5, 2018
 
-    ## 
-    ## Attaching package: 'dplyr'
-
-    ## The following objects are masked from 'package:stats':
-    ## 
-    ##     filter, lag
-
-    ## The following objects are masked from 'package:base':
-    ## 
-    ##     intersect, setdiff, setequal, union
-
 Introduction
 ============
 
@@ -25,11 +14,11 @@ Ecigarettes are also known as electronic cigarettes or "vapes" and contribute to
 
 Even with all of these positive effects such as pain and axiety reduction and the convenience and cost-efficiency of ecigarettes, smoking in general is known for its detrimental effects more than anything. Cigarettes are commonly linked to many life-threatening diseases, such as diabetes, lung cancer, etc. (Health *et al.*, 2004) In a high number of clinical and experimental studies and surveys done, it was strongly supported that there were significant associations between tobacco use and the development of diabetes (Eliasson, 2003). Specifically, the increased risk for diabetes in smoking men and women is around 50%. Through an increased risk for diabetes through cigarettes also came increased risks for things like diabetic nephropathy, retinopathy, and neuropathy. It was said that in working to reduce the effects of type 2 diabetes, the reduction of cigarette smoking would definitely help this. Not smoking at all though, would decrease the risk of diabetes in general and therefore the other diseases that relate to it.
 
-One of the most commonly looked at diseases that is caused by cigarettes is lung cancer. Tobacco was not initally thought of as a cause of lung tumors (Proctor, 2012). However, today, there are many studies done that relate the action of smoking to the prevalence of lung cancer in our country. One of these studies concluded that cigarette smoking acts as another carcinogenic factor in the creation of carcinoma of the lung and its increasing development in proportion to the amount that is smoked (Watson and Conte, 1955). With this, it seen that the relative prevalence of lung cancer in 100,000 male smokers is five times as great as in a non-smoker group. Because cigarette smoking has very strong ties to life-threatening diseases such as cancer, it is important to understand its specific effects to the parts of our bodies that interact with cigarettes on a molecular and microbiome level.
+One of the most commonly looked at diseases that is caused by cigarettes is lung cancer. Tobacco was not initially thought of as a cause of lung tumors (Proctor, 2012). However, today, there are many studies done that relate the action of smoking to the prevalence of lung cancer in our country. One of these studies concluded that cigarette smoking acts as another carcinogenic factor in the creation of carcinoma of the lung and its increasing development in proportion to the amount that is smoked (Watson and Conte, 1955). With this, it seen that the relative prevalence of lung cancer in 100,000 male smokers is five times as great as in a non-smoker group. Because cigarette smoking has very strong ties to life-threatening diseases such as cancer, it is important to understand its specific effects to the parts of our bodies that interact with cigarettes on a molecular and microbiome level.
 
-In a study done by Yu et al., the researchers took a closer look at how cigarette smoking alters the oral and nasal micriobiota. In looking at data of 23 current smokers and 20 never smokers that was sequenced using an Illumina Miseq instrument(Quail *et al.*, 2012), a next generation sequencing platform, they used things like the Wilcoxin rank-sum test (O’Brien and Fleming, 1987) and Spearman correlation (Myers and Sirois, 2004) to understand the difference between both groups (Yu *et al.*, 2017). Through their research, they discovered that there was a potential effect of cigarette smoking on the buccal mucosa microbiota, or the lining of the mouth (Shojaei and others, 1998). Along with this, they also came to the belief that the heterogeneity of the oral microbiome may in fact, contribute, to the stability of the oral microbiota in most areas when interacting with cigarettes.
+In a study done by Yu et al., the researchers took a closer look at how cigarette smoking alters the oral and nasal microbiota. In looking at data of 23 current smokers and 20 never smokers that was sequenced using an Illumina Miseq instrument(Quail *et al.*, 2012), a next generation sequencing platform, they used things like the Wilcoxin rank-sum test (O’Brien and Fleming, 1987) and Spearman correlation (Myers and Sirois, 2004) to understand the difference between both groups (Yu *et al.*, 2017). Through their research, they discovered that there was a potential effect of cigarette smoking on the buccal mucosa microbiota, or the lining of the mouth (Shojaei and others, 1998). Along with this, they also came to the belief that the heterogeneity of the oral microbiome may in fact, contribute, to the stability of the oral microbiota in most areas when interacting with cigarettes.
 
-In analyzing the data from the Yu et al. study, I had two main questions. The first question was if there would be a noticeable difference in bacterial communites between participants who were considered current smokers and participants who were considered never smokers. If there was this difference, the second question focuses on the general variation of abundance of a focal family between smoking individuals and the different environmental samples that the researchers in the Yu et al. study looked at. In the Yu et al. study there were 328 total samples looked at. Running the data from each of these samples through the DADA2 pipeline, I analyzed the reads that were cleaned by filtering, trimming, etc. Taking a look at the bacterial communities, specifically the phyla, in smoking and nonsmoking individuals would provide me with basic information about how the bacterial communities generally differ between the two. Looking at the samples in relation to the smokers and nonsmokers, for the first question, I hypothesized that the bacterical communities would be different in terms of their taxonomy. For the second question, I hypothesized that individual smokers would have similar abundances of the focal family in terms of the different environmental sample materials, while separate smokers would have larger variations in abundances of the focal family between each other. Seeing a major differene between the bacterial phyla of smokers and nonsmokers could ultimately provide us with information that significantly relates to everyone. In further detail, getting a better idea about the difference in bacterial communities in smokers vs. nonsmokers could provide a general idea about how bacteria may affect their bodies in different ways. Relating this to the real world, this bacterial difference may be what increases the risk of life-threatening diseases when we come into contact with nicotine and gaining a better idea of this can help us to stop these life risks.
+In analyzing the data from the Yu et al. study, I had two main questions. The first question was if there would be a noticeable difference in bacterial communities between participants who were considered current smokers and participants who were considered never smokers. If there was this difference, the second question focuses on the general variation of abundance of a focal family between smoking individuals and the different environmental samples that the researchers in the Yu et al. study looked at. In the Yu et al. study there were 328 total samples looked at. Running the data from each of these samples through the DADA2 pipeline, I analyzed the reads that were cleaned by filtering, trimming, etc. Taking a look at the bacterial communities, specifically the phyla, in smoking and nonsmoking individuals would provide me with basic information about how the bacterial communities generally differ between the two. Looking at the samples in relation to the smokers and nonsmokers, for the first question, I hypothesized that the bacterial communities would be different in terms of their taxonomy. For the second question, I hypothesized that individual smokers would have similar abundances of the focal family in terms of the different environmental sample materials, while separate smokers would have larger variations in abundances of the focal family between each other. Seeing a major difference between the bacterial phyla of smokers and nonsmokers could ultimately provide us with information that significantly relates to everyone. In further detail, getting a better idea about the difference in bacterial communities in smokers vs. nonsmokers could provide a general idea about how bacteria may affect their bodies in different ways. Relating this to the real world, this bacterial difference may be what increases the risk of life-threatening diseases when we come into contact with nicotine and gaining a better idea of this can help us to stop these life risks.
 
 Methods
 =======
@@ -44,7 +33,7 @@ Sample origin and sequencing
 
 ### Biospecimen Collection
 
-Yu et al. obtained nine samples, including supra and subgingiva plaque, saliva, swabs from five soft tissue areas, and one nasal swab from both nostrils, from each participant. They used the procedure of the Human Micriobiome Project to collect the samples.
+Yu et al. obtained nine samples, including supra and subgingiva plaque, saliva, swabs from five soft tissue areas, and one nasal swab from both nostrils, from each participant. They used the procedure of the Human Microbiome Project to collect the samples.
 
 ### 16S rRNA Gene Sequence Analysis
 
@@ -54,14 +43,14 @@ Yu et al. processed the sequence reads in order to remove low quality and short 
 
 ### Statistical Analysis
 
-Yu et al. used the Wilcoxon rank-sum test to examine gastric microbiota alpha diversity and taxa-relative abundance differences between each group. They then used the Spearman correlation to examine the relationship between continuous variables. Yu et al. used Bonferroni correction to adjust for tests of multiple taxa. They also used Permutational multivariate analysis of variance in order to look at the assocation between unweighted and weighted UniFrac distance and smoking status and other demographic variables. They considered P values of less than 0.05 to be significant after the adjustment for multiple tests.
+Yu et al. used the Wilcoxon rank-sum test to examine gastric microbiota alpha diversity and taxa-relative abundance differences between each group. They then used the Spearman correlation to examine the relationship between continuous variables. Yu et al. used Bonferroni correction to adjust for tests of multiple taxa. They also used Permutational multivariate analysis of variance in order to look at the association between unweighted and weighted UniFrac distance and smoking status and other demographic variables. They considered P values of less than 0.05 to be significant after the adjustment for multiple tests.
 
 Computational
 -------------
 
 ### FastQ Dump
 
-Using the Yu et al. study, I downloaded the raw fastq files from NCBI with the accession number PRJNA316469 using fastq dump in a bash script. The fastq-dump function is a part of the sratoolkit that was initally downloaded. This SRA Toolkit is used to convert .sra files into other formats (Metzker, 2010). For our purposes, this was the fastq format.
+Using the Yu et al. study, I downloaded the raw fastq files from NCBI with the accession number PRJNA316469 using fastq dump in a bash script. The fastq-dump function is a part of the sratoolkit that was initially downloaded. This SRA Toolkit is used to convert .sra files into other formats (Metzker, 2010). For our purposes, this was the fastq format.
 
 ### DADA2
 
@@ -84,27 +73,27 @@ I looked at 23 current smokers and 20 participants who were considered to be non
 Figures
 -------
 
-![](Final_Report_files/figure-markdown_github/bar-graph-1-1.png)
+![](Final_Report_files/figure-markdown_github/bar-graph-of-smokers-vs-nonsmokers-1.png)
 
 **Figure 1**: Abundance Counts of the Different Phyla in Terms of Smoking Status. The Firmicutes phylum had the largest abundance counts for both smokers and nonsmokers in comparison to the other phyla. Firmicutes also reveals the largest variation in abundance counts between smokers and nonsmokers.
 
-![](Final_Report_files/figure-markdown_github/bar-graph-2-1.png)
+![](Final_Report_files/figure-markdown_github/bar-graph-of-phyla-in-smokers-1.png)
 
 **Figure 2**: Abundance Counts of the Different Phyla in Smokers According to env\_material. Fusobacteria and Proteobacteria phyla reveal variation in abundance counts of the different environmental sample materials. However, Firmicutes shows the greatest abundance values for all environmental sample materials, with the tongue swab and plaque scrape samples having the largest values of the 9 materials.
 
-![](Final_Report_files/figure-markdown_github/bar-graph-3-1.png)
+![](Final_Report_files/figure-markdown_github/bar-graph-of-firmicutes-close-up-1.png)
 
 **Figure 3**: Abundance Counts of Firmicutes in Smokers According to env\_material. The tongue swab and plaque scrape samples in Firmicutes had the largest and somewhat similar abundance counts. The other seven samples revealed variation in abundance counts that were not as significant.
 
-![](Final_Report_files/figure-markdown_github/bar-graph-4-1.png)
+![](Final_Report_files/figure-markdown_github/bar-graph-of-families-in-smokers-1.png)
 
 **Figure 4**: Abundance Counts of the Different Families in Firmicutes of Smokers According to env\_material. *Veilonellaceae* revealed more significant variation in abundance counts of the different environmental sample materials in comparison to the other families. However, *Streptococcaceae* had the most outstanding variation in abundance counts of the env\_materials. The tongue swab and plaque scrape samples had the largest abundance values, where the other 7 samples in correspondence to this family did not vary as much.
 
-![](Final_Report_files/figure-markdown_github/bar-graph-5-1.png)
+![](Final_Report_files/figure-markdown_github/bar-graph-of-streptococcaceae-close-up-1.png)
 
 **Figure 5**: Abundance Counts of *Streptococcaceae* in Smokers According to env\_material. This looks closer at the variation in abundance values of the focal family. The abundance values of the tongue swab and plaque scrape samples in relation to *Streptococcaceae* were the largest. The abundance counts of the other 7 sample materials did not show much significant variation and had lower values than the tongue swab and plaque scrape samples in general.
 
-![](Final_Report_files/figure-markdown_github/bar-graph-6-1.png)
+![](Final_Report_files/figure-markdown_github/bar-graph-of-individual-smokers-1.png)
 
 **Figure 6**: Abundance Counts of host\_subject\_id in Terms of *Streptococcaceae*, env\_material, and Positive Smoking Status. The abundance counts of *Streptococcaceae* in relation to the tongue swab samples did not show much variation between each individual. However, there was variation in the abundance counts of *Streptococcaceae* in correspondence to the plaque scrape samples. The variation in abundance counts of the other 7 sample materials were not as significant.
 

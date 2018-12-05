@@ -12,7 +12,7 @@ csl: bioinformatics.csl
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r load-packages-and-data, echo = FALSE}
+```{r load-packages-and-data, include = FALSE}
 # load packages as needed
 library("dplyr")
 library("tidyr")
